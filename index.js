@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 // TODO: Create an array of questions for user input
-const questions = ['What is the title of the project?', 'What do you want the description to be?', 'How will the user install the application?', 'How will someone use this application?', 'How can someone contribute to this work?', 'How can someone test the application?', 'What kind of license will the application have?', 'What is your GitHub username?', 'Enter an email that you want to be contacted with if someone has a question about the application.'];
+const questions = ['Enter the project title.', 'Enter the project description.', 'Enter the installation instructions for the project.', 'Enter the usage information for the project.', 'Enter the contribution guidelines.', 'Enter the test instructions for the project.', 'What kind of license will the application have?', 'Enter your GitHub username.', 'Enter an email that you want to be contacted with if someone has a question about the application.'];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
@@ -50,7 +50,7 @@ function init() {
                 type: 'list',
                 message: questions[6],
                 name: 'license',
-                choices: ['None', 'Apache License 2.0', 'GNU General Public License v3.0', 'MIT License'],
+                choices: ['None', 'Apache License 2.0', 'GNU General Public License v3.0', 'MIT License', 'Boost Software License 1.0', 'Eclipse Public License 1.0'],
                 default: 'None',
             },
             {
@@ -65,7 +65,9 @@ function init() {
             }
         ])
         .then((res) => {
-            console.log(res.title)
+            fs.writeFile('./generatedREADME/README.md', generateMarkdown(res), err => 
+            err ? console.log(err) : console.log("Success!")
+            )
         })
 }
 
