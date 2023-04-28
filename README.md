@@ -21,7 +21,10 @@
   ## Usage
 
   ![Terminal example](./images/screenshot1.jpg)
+  
   Initiate the application by navigating to the README Generator directory and typing the Node.js command 'node index.js'. The application will prompt the user to answer questions and dynamically generate the README. The generated README.md file will be written in the generatedREADME directory.
+  
+  [Untitled_ Apr 28, 2023 1_35 PM.webm](https://user-images.githubusercontent.com/128437170/235250308-12d27fe6-1560-443f-a680-484a120853c5.webm)
 
   ## License
 
