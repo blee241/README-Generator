@@ -34,14 +34,35 @@ function renderLicenseLink(license) {
         link = '';
         break;
     case 'Apache License 2.0':
-        link = '';
+        link = 'https://opensource.org/licenses/Apache-2.0';
+        break;
+    case 'GNU General Public License v3.0':
+        link = 'https://www.gnu.org/licenses/gpl-3.0';
+        break;
+    case 'MIT License':
+        link = 'https://opensource.org/licenses/MIT';
+        break;
+    case 'Boost Software License 1.0':
+        link = 'https://www.boost.org/LICENSE_1_0.txt';
+        break;
+    case 'Eclipse Public License 1.0':
+        link = 'https://opensource.org/licenses/EPL-1.0';
+        break;
   }
   return link;
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license, username) {
+  if (license != 'None') {
+  return `## License
+
+  Copyright (c) ${username}. All rights reserved. <br>
+  Licensed under the [${license}](${renderLicenseLink(license)}) license.
+  `
+  }
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -69,11 +90,7 @@ function generateMarkdown(data) {
 
   ${data.usage}
 
-  ## License
-
-  Copyright (c) ${data.username}. All rights reserved. <br>
-  Licensed under the [${data.license}](LICENSE.txt) license.
-
+  ${renderLicenseSection(data.license, data.username)}
   ## Contributing
 
   ${data.contributions}
