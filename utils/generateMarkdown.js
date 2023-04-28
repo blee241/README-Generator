@@ -57,11 +57,12 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license, username) {
   let output = '';
   if (license != 'None') {
-    output = `## License
+    output = 
+  `## License
 
-    Copyright (c) ${username}. All rights reserved. <br>
-    Licensed under the [${license}](${renderLicenseLink(license)}) license.
-    `;
+  Copyright (c) ${username}. All rights reserved. <br>
+  Licensed under the [${license}](${renderLicenseLink(license)}) license.
+  `;
   };
   return output;
 }
