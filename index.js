@@ -13,7 +13,61 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                message: questions[0],
+                name: 'title'
+            },
+            {
+                type: 'input',
+                message: questions[1],
+                name: 'description'
+            },
+            {
+                type: 'input',
+                message: questions[2],
+                name: 'installation'
+            },
+            {
+                type: 'input',
+                message: questions[3],
+                name: 'usage'
+            },
+            {
+                type: 'input',
+                message: questions[4],
+                name: 'contributions'
+            },
+            {
+                type: 'input',
+                message: questions[5],
+                name: 'test'
+            },
+            {
+                type: 'list',
+                message: questions[6],
+                name: 'license',
+                choices: ['None', 'Apache License 2.0', 'GNU General Public License v3.0', 'MIT License'],
+                default: 'None',
+            },
+            {
+                type: 'input',
+                message: questions[7],
+                name: 'username',
+            },
+            {
+                type: 'input',
+                message: questions[8],
+                name: 'email'
+            }
+        ])
+        .then((res) => {
+            console.log(res.title)
+        })
+}
 
 // Function call to initialize app
 init();
@@ -21,53 +75,3 @@ init();
 
 
 
-inquirer
-    .prompt([
-        {
-            type: 'input',
-            message: questions[0],
-            name: 'title'
-        }
-        {
-            type: 'input',
-            message: questions[1],
-            name: 'description'
-        },
-        {
-            type: 'input',
-            message: questions[2],
-            name: 'installation'
-        },
-        {
-            type: 'input',
-            message: questions[3],
-            name: 'usage'
-        },
-        {
-            type: 'input',
-            message: questions[4],
-            name: 'contributions'
-        },
-        {
-            type: 'input',
-            message: questions[5],
-            name: 'test'
-        },
-        {
-            type: 'list',
-            message: questions[6],
-            name: 'license',
-            choices: ['None', 'Apache License 2.0', 'GNU General Public License v3.0', 'MIT License'],
-            default: 'None',
-        },
-        {
-            type: 'input',
-            message: questions[7],
-            name: 'username',
-        },
-        {
-            type: 'input',
-            message: questions[8],
-            name: 'email'
-        }
-    ])
